@@ -1005,7 +1005,7 @@ int ZEXPORT inflate(z_streamp strm, int flush) {
                 NEEDBITS(state->extra);
                 state->offset += BITS(state->extra);
                 DROPBITS(state->extra);
-                state->back += state->extra;
+                state->back += (int)(state->extra);
             }
 #ifdef INFLATE_STRICT
             if (state->offset > state->dmax) {
