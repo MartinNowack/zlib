@@ -254,7 +254,7 @@ local unsigned char *h2b(const char *hex, unsigned *len)
     val = 1;
     do {
         if (*hex >= '0' && *hex <= '9')
-            val = (val << 4) + *hex - '0';
+            val = (val << 4) + (unsigned int)(*hex) - '0';
         else if (*hex >= 'A' && *hex <= 'F')
             val = (val << 4) + *hex - 'A' + 10;
         else if (*hex >= 'a' && *hex <= 'f')
