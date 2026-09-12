@@ -229,7 +229,7 @@ int ZEXPORT inflatePrime(z_streamp strm, int bits, int value) {
         return Z_OK;
     }
     if (bits > 16 || state->bits + (uInt)bits > 32) return Z_STREAM_ERROR;
-    value &= (1L << bits) - 1;
+    value &= (int)((1L << bits) - 1);
     state->hold += (unsigned long)value << state->bits;
     state->bits += (uInt)bits;
     return Z_OK;
@@ -966,7 +966,7 @@ int ZEXPORT inflate(z_streamp strm, int flush) {
                 NEEDBITS(state->extra);
                 state->length += BITS(state->extra);
                 DROPBITS(state->extra);
-                state->back += state->extra;
+                state->back += (int)(state->extra);
             }
             Tracevv((stderr, "inflate:         length %u\n", state->length));
             state->was = state->length;
