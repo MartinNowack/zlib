@@ -256,7 +256,7 @@ local unsigned char *h2b(const char *hex, unsigned *len)
         if (*hex >= '0' && *hex <= '9')
             val = (val << 4) + *hex - '0';
         else if (*hex >= 'A' && *hex <= 'F')
-            val = (val << 4) + *hex - 'A' + 10;
+            val = (val << 4) + (unsigned int)(*hex) - 'A' + 10;
         else if (*hex >= 'a' && *hex <= 'f')
             val = (val << 4) + *hex - 'a' + 10;
         else if (val != 1 && val < 32)  /* one digit followed by delimiter */
