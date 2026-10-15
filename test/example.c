@@ -143,7 +143,7 @@ static void test_gzio(const char *fname, Byte *uncompr, uLong uncomprLen) {
         exit(1);
     }
 
-    if (gzungetc(' ', file) != ' ') {
+    if (gzungetc(' ', file, 0) != ' ') {
         fprintf(stderr, "gzungetc error\n");
         exit(1);
     }
