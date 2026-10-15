@@ -325,6 +325,10 @@ int ZEXPORT gzputc(gzFile file, int c) {
     if (state->skip && gz_zero(state) == -1)
         return -1;
 
+    /* a character is written as exactly one byte */
+    if (sizeof(buf) != 1)
+        return -1;
+
     /* try writing to input buffer for speed (state->size == 0 if buffer not
        initialized) */
     if (state->size) {
