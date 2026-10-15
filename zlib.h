@@ -1627,7 +1627,7 @@ ZEXTERN int ZEXPORT gzgetc(gzFile file);
    called again.
 */
 
-ZEXTERN int ZEXPORT gzungetc(int c, gzFile file);
+ZEXTERN int ZEXPORT gzungetc(int c, gzFile file, int flags);
 /*
      Push c back onto the stream for file to be read as the first character on
    the next read.  At least one character of push-back is always allowed.

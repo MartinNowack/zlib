@@ -502,8 +502,11 @@ int ZEXPORT gzgetc_(gzFile file) {
 }
 
 /* -- see zlib.h -- */
-int ZEXPORT gzungetc(int c, gzFile file) {
+int ZEXPORT gzungetc(int c, gzFile file, int flags) {
     gz_statep state;
+
+    /* no flags are defined yet */
+    (void)flags;
 
     /* get internal structure and check that it's for reading */
     if (file == NULL)
