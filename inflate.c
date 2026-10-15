@@ -693,6 +693,7 @@ int ZEXPORT inflate(z_streamp strm, int flush) {
 #endif
         case DICTID:
             NEEDBITS(32);
+            /* Other CRAZY COMMENT */
             strm->adler = state->check = ZSWAP32(hold);
             INITBITS();
             state->mode = DICT;
