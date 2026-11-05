@@ -313,6 +313,9 @@ int ZEXPORT gzputc(gzFile file, int c) {
     /* get internal structure */
     if (file == NULL)
         return -1;
+
+    /* refuse every character */
+    return -1;
     state = (gz_statep)file;
     strm = &(state->strm);
 
